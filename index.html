@@ -93,7 +93,7 @@ border-left:4px solid #7d45ff;
 padding-left:12px;
 }
 
-/* CONTENEDORES DE ANUNCIOS DE ADORNO EXTERNOS (CPM FIJO) */
+/* CONTENEDORES DE ANUNCIOS DE ADORNO EXTERNOS (SÓLO IMPRESIONES) */
 .ad-decor{
 display:flex;
 justify-content:center;
@@ -105,7 +105,7 @@ border-radius:12px;
 border:1px solid #252525;
 min-height:60px;
 overflow:hidden;
-pointer-events: none; /* Bloquea clics dentro del banner */
+pointer-events: none; /* Bloquea clics falsos */
 }
 
 .videos-grid {
@@ -205,7 +205,7 @@ font-size:13px;
 line-height:1.5;
 }
 
-/* ÁREA DE ENLACES TOTALMENTE SEGURA */
+/* ÁREA DE DESCARGAS LIMPIA */
 .links-area {
 background:#111;
 padding:30px;
@@ -300,7 +300,7 @@ from { opacity: 0; transform: translateY(-5px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* BANNERS LATERALES FIJOS (SÓLO IMPRESIONES) */
+/* BANNERS LATERALES FIJOS (SÓLO IMPRESIONES DE FONDO) */
 .sidebar-decor-left {
 position: fixed;
 left: 10px;
@@ -311,7 +311,7 @@ flex-direction: column;
 gap: 20px;
 z-index: 50;
 align-items: center;
-pointer-events: none; /* No clics accidentales */
+pointer-events: none;
 }
 
 .sidebar-decor-right {
@@ -324,7 +324,7 @@ flex-direction: column;
 gap: 20px;
 z-index: 50;
 align-items: center;
-pointer-events: none; /* No clics accidentales */
+pointer-events: none;
 }
 
 .side-box {
@@ -417,7 +417,7 @@ grid-template-columns: 1fr;
             <div class="play-icon"></div>
         </div>
         <div class="video-info">
-            <h3>action stuff #1</h3>
+            <h3>Mira el último video oficial #1</h3>
             <p>Haz clic aquí para abrir este tremendo video directo en YouTube y dejar tu apoyo.</p>
         </div>
     </a>
@@ -428,7 +428,7 @@ grid-template-columns: 1fr;
             <div class="play-icon"></div>
         </div>
         <div class="video-info">
-            <h3>Descarga de Minecraft #2</h3>
+            <h3>Trucos y Guías del canal #2</h3>
             <p>No te pierdas esta locura. Toca aquí para verlo de inmediato en la app de YouTube.</p>
         </div>
     </a>
@@ -447,8 +447,8 @@ grid-template-columns: 1fr;
 
     <div class="download-server-box">
         <div class="server-name">Link de Minecraft ultima version</div>
-        <button class="unlock-btn" id="btn-mc" onclick="startTimer('mc')">GENERAR ENLACE DE MINECRAFT</button>
-        <div class="counter-text" id="timer-mc">Verificando seguridad... Espera 10 segundos...</div>
+        <button class="unlock-btn" id="btn-mc" onclick="startTimer('mc')">DESBLOQUEAR ENLACE (30 SEG)</button>
+        <div class="counter-text" id="timer-mc">Verificando seguridad... Espera 30 segundos...</div>
         
         <div class="links-list" id="list-mc">
             <a href="https://www.mediafire.com/file/bmifksn1m5ltpmz/minecraft-26-23byMinecrafter.apk/file" target="_blank" class="mediafire-btn">
@@ -459,8 +459,8 @@ grid-template-columns: 1fr;
 
     <div class="download-server-box">
         <div class="server-name">Action Stuff Mod Pack</div>
-        <button class="unlock-btn" id="btn-as" onclick="startTimer('as')">GENERAR ENLACE DE ACTION STUFF</button>
-        <div class="counter-text" id="timer-as">Verificando seguridad... Espera 10 segundos...</div>
+        <button class="unlock-btn" id="btn-as" onclick="startTimer('as')">DESBLOQUEAR ENLACE (30 SEG)</button>
+        <div class="counter-text" id="timer-as">Verificando seguridad... Espera 30 segundos...</div>
         
         <div class="links-list" id="list-as">
             <a href="https://www.mediafire.com/file/dye14x4rpukxpee/Actions_Stuff_1.10_RE.mcpack.zip/file" target="_blank" class="mediafire-btn" style="background: #28a745;">
@@ -486,6 +486,7 @@ grid-template-columns: 1fr;
 </footer>
 
 <script>
+// NUEVA LÓGICA: ACTUALIZADO A 30 SEGUNDOS POR ENLACE
 function startTimer(type) {
     let btn = document.getElementById('btn-' + type);
     let timerText = document.getElementById('timer-' + type);
@@ -494,7 +495,7 @@ function startTimer(type) {
     btn.style.display = 'none';
     timerText.style.display = 'block';
     
-    let timeLeft = 10;
+    let timeLeft = 30; // Inicia la cuenta regresiva en 30 segundos
     
     let countdown = setInterval(() => {
         timeLeft--;
@@ -503,7 +504,7 @@ function startTimer(type) {
         if (timeLeft <= 0) {
             clearInterval(countdown);
             timerText.style.display = 'none';
-            list.style.display = 'block';
+            list.style.display = 'block'; // Muestra el link de Mediafire
         }
     }, 1000);
 }
