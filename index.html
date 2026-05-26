@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renesaurio - Centro de Descargas Seguro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://pl29540109.effectivecpmnetwork.com/8a/b9/63/8ab963b9845c28f684f16a56140dea45.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0d0d0d;
+color:white;
+position:relative;
+overflow-x:hidden;
+}
+
+header{
+background:#151515;
+padding:18px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #7d45ff;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:#a46dff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#a46dff;
+}
+
+/* CONTENEDOR OPTIMIZADO PARA DARLE ESPACIO A LOS ANUNCIOS DE LOS BORDES */
+.container{
+max-width:850px;
+margin:auto;
+padding:25px;
+position:relative;
+z-index:10;
+}
+
+.card{
+background:#171717;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(125,69,255,0.3);
+padding:30px;
+}
+
+.title{
+font-size:38px;
+font-weight:700;
+margin-bottom:10px;
+text-align:center;
+background: linear-gradient(45deg, #a46dff, #00e5ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.description{
+color:#d0d0d0;
+line-height:1.9;
+margin-bottom:35px;
+text-align:center;
+font-size:16px;
+}
+
+.section-title{
+font-size:26px;
+margin:35px 0 20px;
+color:#b07cff;
+border-left:4px solid #7d45ff;
+padding-left:12px;
+}
+
+/* CONTENEDORES DE ANUNCIOS DE ADORNO INTERNOS (CPM / IMPRESIONES) */
+.ad-decor{
+display:flex;
+justify-content:center;
+align-items:center;
+margin:25px 0;
+padding:10px;
+background:#131313;
+border-radius:12px;
+border:1px solid #252525;
+min-height:60px;
+overflow:hidden;
+pointer-events: none; /* Modo adorno: evita clics accidentales, solo genera impresiones fijas */
+}
+
+/* DISEÑO DE LA ZONA DE VIDEOS RECOMENDADOS */
+.videos-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+gap:22px;
+margin-bottom:20px;
+}
+
+.video-card {
+background:#222;
+border-radius:18px;
+overflow:hidden;
+border:1px solid #333;
+transition:0.3s;
+text-decoration:none;
+color:white;
+display:block;
+}
+
+.video-card:hover {
+transform:translateY(-4px);
+border-color:#7d45ff;
+box-shadow:0 10px 20px rgba(125,69,255,0.2);
+}
+
+.video-thumbnail {
+width:100%;
+height:170px;
+background:#111;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.play-icon {
+width: 55px;
+height: 55px;
+background: rgba(255, 0, 0, 0.85);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.3s;
+box-shadow: 0 0 15px rgba(255,0,0,0.3);
+}
+
+.video-card:hover .play-icon {
+background: rgb(255, 0, 0);
+transform: scale(1.1);
+}
+
+.play-icon::after {
+content: '';
+display: block;
+width: 0;
+height: 0;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-left: 17px solid white;
+margin-left: 5px;
+}
+
+.video-info {
+padding:18px;
+}
+
+.video-info h3 {
+font-size:17px;
+font-weight:600;
+margin-bottom:8px;
+line-height:1.4;
+}
+
+.video-info p {
+color:#aaa;
+font-size:13px;
+line-height:1.5;
+}
+
+/* ESTRUCTURA DE LA ZONA DE LINKS CON CONTADOR INDEPENDIENTE */
+.links-area {
+background:#111;
+padding:30px;
+border-radius:20px;
+border:1px solid #222;
+text-align:center;
+}
+
+.download-server-box {
+background: #181818;
+padding: 25px;
+border-radius: 16px;
+border: 1px solid #2a2a2a;
+margin-bottom: 25px;
+}
+
+.download-server-box:last-child {
+margin-bottom: 0;
+}
+
+.server-name {
+font-size: 20px;
+font-weight: 700;
+color: #ffffff;
+margin-bottom: 15px;
+text-align: left;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.server-name::before {
+content: '🎮';
+}
+
+.unlock-btn {
+width: 100%;
+padding: 16px;
+font-size: 18px;
+font-weight: 700;
+background: linear-gradient(45deg, #7d45ff, #00e5ff);
+color: white;
+border: none;
+border-radius: 12px;
+cursor: pointer;
+transition: 0.3s;
+box-shadow: 0 4px 15px rgba(124, 69, 255, 0.3);
+}
+
+.unlock-btn:hover {
+transform: scale(1.02);
+box-shadow: 0 6px 20px rgba(124, 69, 255, 0.5);
+}
+
+.counter-text {
+display: none;
+font-size: 16px;
+color: #00e5ff;
+font-weight: 600;
+margin: 15px 0 0 0;
+}
+
+.links-list {
+display: none;
+margin-top: 15px;
+animation: fadeIn 0.5s ease;
+}
+
+.mediafire-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+padding: 15px;
+background: #007bff;
+color: white;
+text-decoration: none;
+font-weight: 700;
+font-size: 16px;
+border-radius: 12px;
+transition: 0.3s;
+box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+}
+
+.mediafire-btn:hover {
+background: #0056b3;
+transform: scale(1.01);
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(-5px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====================================================
+   ESTRUCTURA DE ANUNCIOS BORDES LATERALES FIJOS (DE ADORNO)
+====================================================== */
+.sidebar-decor-left {
+position: fixed;
+left: 10px;
+top: 120px;
+width: 170px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+z-index: 50;
+align-items: center;
+pointer-events: none; /* No clics de error, solo impresiones puras */
+}
+
+.sidebar-decor-right {
+position: fixed;
+right: 10px;
+top: 120px;
+width: 170px;
+display: flex;
+flex-direction: column;
+gap: 20px;
+z-index: 50;
+align-items: center;
+pointer-events: none;
+}
+
+.side-box {
+background: #111;
+padding: 5px;
+border: 1px solid #222;
+border-radius: 8px;
+overflow: hidden;
+}
+
+/* RESPONSIVE: ESCONDE LOS LATERALES EN DISPOSITIVOS MÓVILES AUTOMÁTICAMENTE */
+@media(max-width:1300px){
+.sidebar-decor-left, .sidebar-decor-right {
+display: none !important;
+}
+}
+
+@media(max-width:768px){
+.title{
+font-size:30px;
+}
+.videos-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar-decor-left">
+    <div class="side-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '2b8951f952b33c3bf1695559e396d534', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/2b8951f952b33c3bf1695559e396d534/invoke.js"></script>
+    </div>
+    <div class="side-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '936bbddbd8e55b64e7279fc633197fdd', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/936bbddbd8e55b64e7279fc633197fdd/invoke.js"></script>
+    </div>
+</div>
+
+<div class="sidebar-decor-right">
+    <div class="side-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '2b8951f952b33c3bf1695559e396d534', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/2b8951f952b33c3bf1695559e396d534/invoke.js"></script>
+    </div>
+    <div class="side-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '936bbddbd8e55b64e7279fc633197fdd', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/936bbddbd8e55b64e7279fc633197fdd/invoke.js"></script>
+    </div>
+</div>
+
+<header>
+<div class="logo">Renesaurio</div>
+<nav>
+<a href="#">Inicio</a>
+<a href="#">Videos</a>
+<a href="#">Descargas</a>
+</nav>
+</header>
+
+<div class="container">
+<div class="card">
+
+<h1 class="title">Zona de Descargas</h1>
+<p class="description">
+¡Bienvenido al panel oficial! Ve mis videos recomendados y obtén tus archivos de forma directa y segura abajo. ¡Gracias por el gran apoyo a la comunidad!
+</p>
+
+<div class="ad-decor">
+    <script type="text/javascript">
+        atOptions = { 'key' : '916439df80e593571c3e51b3f6027d1', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/916439df80e593571c3e51b3f6027d1/invoke.js"></script>
+</div>
+
+<h2 class="section-title">Videos Recomendados</h2>
+<div class="videos-grid">
+
+    <a href="https://www.youtube.com/watch?v=JU640gVd9jo" target="_blank" class="video-card">
+        <div class="video-thumbnail">
+            <div class="play-icon"></div>
+        </div>
+        <div class="video-info">
+            <h3>Mira el último video oficial #1</h3>
+            <p>Haz clic aquí para abrir este tremendo video directo en YouTube y dejar tu apoyo.</p>
+        </div>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=IbGWo23RB94" target="_blank" class="video-card">
+        <div class="video-thumbnail">
+            <div class="play-icon"></div>
+        </div>
+        <div class="video-info">
+            <h3>Trucos y Guías del canal #2</h3>
+            <p>No te pierdas esta locura. Toca aquí para verlo de inmediato en la app de YouTube.</p>
+        </div>
+    </a>
+
+</div>
+
+<div class="ad-decor">
+    <script type="text/javascript">
+        atOptions = { 'key' : 'bc6f9b93f4bab4c198167153dd36aaa8', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/bc6f9b93f4bab4c198167153dd36aaa8/invoke.js"></script>
+</div>
+
+<h2 class="section-title">Links de Descarga</h2>
+<div class="links-area">
+
+    <div class="download-server-box">
+        <div class="server-name">Link de Minecraft ultima version</div>
+        <button class="unlock-btn" id="btn-mc" onclick="startTimer('mc')">GENERAR ENLACE DE MINECRAFT</button>
+        <div class="counter-text" id="timer-mc">Verificando seguridad... Espera 10 segundos...</div>
+        
+        <div class="links-list" id="list-mc">
+            <a href="https://www.mediafire.com/file/bmifksn1m5ltpmz/minecraft-26-23byMinecrafter.apk/file" target="_blank" class="mediafire-btn">
+                🔥 DESCARGAR MINECRAFT APK (MEDIAFIRE) 🔥
+            </a>
+        </div>
+    </div>
+
+    <div class="ad-decor" style="min-height: 260px;">
+        <script type="text/javascript">
+            atOptions = { 'key' : '90127b158675e37dedb1556bba2bb098', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/90127b158675e37dedb1556bba2bb098/invoke.js"></script>
+    </div>
+
+    <div class="download-server-box">
+        <div class="server-name">Action Stuff Mod Pack</div>
+        <button class="unlock-btn" id="btn-as" onclick="startTimer('as')">GENERAR ENLACE DE ACTION STUFF</button>
+        <div class="counter-text" id="timer-as">Verificando seguridad... Espera 10 segundos...</div>
+        
+        <div class="links-list" id="list-as">
+            <a href="https://www.mediafire.com/file/dye14x4rpukxpee/Actions_Stuff_1.10_RE.mcpack.zip/file" target="_blank" class="mediafire-btn" style="background: #28a745;">
+                🚀 DESCARGAR ACTIONS STUFF MCPACK (MEDIAFIRE) 🚀
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="ad-decor">
+    <script type="text/javascript">
+        atOptions = { 'key' : 'f4e56db114511233b686986f8af2d716', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/f4e56db114511233b686986f8af2d716/invoke.js"></script>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2026 Renesaurio - Todos los derechos reservados
+</footer>
+
+<script>
+// LÓGICA DE LOS CONTADORES INDEPENDIENTES DE 10 SEGUNDOS (20 SEGUNDOS EN TOTAL)
+function startTimer(type) {
+    let btn = document.getElementById('btn-' + type);
+    let timerText = document.getElementById('timer-' + type);
+    let list = document.getElementById('list-' + type);
+    
+    // Escondemos el botón y mostramos el contador de 10 segundos para este enlace
+    btn.style.display = 'none';
+    timerText.style.display = 'block';
+    
+    let timeLeft = 10;
+    
+    let countdown = setInterval(() => {
+        timeLeft--;
+        timerText.innerHTML = "Verificando seguridad... Espera " + timeLeft + " segundos...";
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            timerText.style.display = 'none';
+            list.style.display = 'block'; // Libera el botón de Mediafire correspondiente
+        }
+    }, 1000);
+}
+</script>
+
+<script src="https://pl29540111.effectivecpmnetwork.com/93/1b/f5/931bf5c1d60f26caad8db3f07e9cfee.js"></script>
+
+</body>
+</html>
