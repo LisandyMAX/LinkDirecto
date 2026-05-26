@@ -7,8 +7,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<script src="https://pl29540109.effectivecpmnetwork.com/8a/b9/63/8ab963b9845c28f684f16a56140dea45.js"></script>
-
 <style>
 *{
 margin:0;
@@ -53,7 +51,6 @@ nav a:hover{
 color:#a46dff;
 }
 
-/* CONTENEDOR OPTIMIZADO PARA DARLE ESPACIO A LOS ANUNCIOS DE LOS BORDES */
 .container{
 max-width:850px;
 margin:auto;
@@ -96,7 +93,7 @@ border-left:4px solid #7d45ff;
 padding-left:12px;
 }
 
-/* CONTENEDORES DE ANUNCIOS DE ADORNO EXTERNOS (CPM / IMPRESIONES) */
+/* CONTENEDORES DE ANUNCIOS DE ADORNO EXTERNOS (CPM FIJO) */
 .ad-decor{
 display:flex;
 justify-content:center;
@@ -108,10 +105,9 @@ border-radius:12px;
 border:1px solid #252525;
 min-height:60px;
 overflow:hidden;
-pointer-events: none; /* Modo adorno: evita clics accidentales, solo genera impresiones fijas */
+pointer-events: none; /* Bloquea clics dentro del banner */
 }
 
-/* DISEÑO DE LA ZONA DE VIDEOS RECOMENDADOS */
 .videos-grid {
 display:grid;
 grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
@@ -138,12 +134,29 @@ box-shadow:0 10px 20px rgba(125,69,255,0.2);
 
 .video-thumbnail {
 width:100%;
-height:170px;
+height:190px;
 background:#111;
 position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
+overflow:hidden;
+}
+
+.video-thumbnail img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0.8;
+transition: 0.3s;
+}
+
+.video-card:hover .video-thumbnail img {
+opacity: 1;
+transform: scale(1.03);
 }
 
 .play-icon {
@@ -156,6 +169,7 @@ justify-content: center;
 align-items: center;
 transition: 0.3s;
 box-shadow: 0 0 15px rgba(255,0,0,0.3);
+z-index: 2;
 }
 
 .video-card:hover .play-icon {
@@ -191,7 +205,7 @@ font-size:13px;
 line-height:1.5;
 }
 
-/* ESTRUCTURA DE LA ZONA DE LINKS LIMPIA SIN ANUNCIOS INTERNOS */
+/* ÁREA DE ENLACES TOTALMENTE SEGURA */
 .links-area {
 background:#111;
 padding:30px;
@@ -286,9 +300,7 @@ from { opacity: 0; transform: translateY(-5px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* ====================================================
-   ESTRUCTURA DE ANUNCIOS BORDES LATERALES FIJOS (DE ADORNO)
-====================================================== */
+/* BANNERS LATERALES FIJOS (SÓLO IMPRESIONES) */
 .sidebar-decor-left {
 position: fixed;
 left: 10px;
@@ -299,7 +311,7 @@ flex-direction: column;
 gap: 20px;
 z-index: 50;
 align-items: center;
-pointer-events: none; /* No clics de error, solo impresiones puras */
+pointer-events: none; /* No clics accidentales */
 }
 
 .sidebar-decor-right {
@@ -312,7 +324,7 @@ flex-direction: column;
 gap: 20px;
 z-index: 50;
 align-items: center;
-pointer-events: none;
+pointer-events: none; /* No clics accidentales */
 }
 
 .side-box {
@@ -323,7 +335,6 @@ border-radius: 8px;
 overflow: hidden;
 }
 
-/* RESPONSIVE: ESCONDE LOS LATERALES EN DISPOSITIVOS MÓVILES AUTOMÁTICAMENTE */
 @media(max-width:1300px){
 .sidebar-decor-left, .sidebar-decor-right {
 display: none !important;
@@ -402,6 +413,7 @@ grid-template-columns: 1fr;
 
     <a href="https://www.youtube.com/watch?v=JU640gVd9jo" target="_blank" class="video-card">
         <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/JU640gVd9jo/maxresdefault.jpg" alt="Miniatura Video 1">
             <div class="play-icon"></div>
         </div>
         <div class="video-info">
@@ -412,6 +424,7 @@ grid-template-columns: 1fr;
 
     <a href="https://www.youtube.com/watch?v=IbGWo23RB94" target="_blank" class="video-card">
         <div class="video-thumbnail">
+            <img src="https://img.youtube.com/vi/IbGWo23RB94/maxresdefault.jpg" alt="Miniatura Video 2">
             <div class="play-icon"></div>
         </div>
         <div class="video-info">
@@ -473,13 +486,11 @@ grid-template-columns: 1fr;
 </footer>
 
 <script>
-// LÓGICA DE LOS CONTADORES INDEPENDIENTES DE 10 SEGUNDOS (20 SEGUNDOS EN TOTAL)
 function startTimer(type) {
     let btn = document.getElementById('btn-' + type);
     let timerText = document.getElementById('timer-' + type);
     let list = document.getElementById('list-' + type);
     
-    // Escondemos el botón y mostramos el contador de 10 segundos para este enlace
     btn.style.display = 'none';
     timerText.style.display = 'block';
     
@@ -492,13 +503,11 @@ function startTimer(type) {
         if (timeLeft <= 0) {
             clearInterval(countdown);
             timerText.style.display = 'none';
-            list.style.display = 'block'; // Libera el botón de Mediafire correspondiente
+            list.style.display = 'block';
         }
     }, 1000);
 }
 </script>
-
-<script src="https://pl29540111.effectivecpmnetwork.com/93/1b/f5/931bf5c1d60f26caad8db3f07e9cfee.js"></script>
 
 </body>
 </html>
