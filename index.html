@@ -343,7 +343,6 @@ border-radius: 8px;
 overflow: hidden;
 }
 
-/* NUEVA SECCIÓN MÓVIL: Se activa únicamente en pantallas chicas */
 .mobile-ads-container {
 display: none;
 justify-content: center;
@@ -359,13 +358,10 @@ max-width: 360px;
 pointer-events: none;
 }
 
-/* CAMBIO DE DISEÑO AUTOMÁTICO EN CELULARES */
 @media(max-width:1300px){
-/* Oculta los flotantes de los lados para que no estorben */
 .sidebar-decor-left, .sidebar-decor-right {
 display: none !important;
 }
-/* Activa los bloques de 160px abajo del contenedor principal */
 .mobile-ads-container {
 display: flex !important;
 }
@@ -452,9 +448,9 @@ grid-template-columns: 1fr;
         </div>
     </a>
 
-    <a href="https://www.youtube.com/watch?v=IbGWo23RB94" target="_blank" class="video-card">
+    <a href="https://www.youtube.com/watch?v=an7uYZjWQAY" target="_blank" class="video-card">
         <div class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/IbGWo23RB94/maxresdefault.jpg" alt="Miniatura Video 2">
+            <img src="https://img.youtube.com/vi/an7uYZjWQAY/maxresdefault.jpg" alt="Miniatura Video Actions Stuff">
             <div class="play-icon"></div>
         </div>
         <div class="video-info">
@@ -509,7 +505,8 @@ grid-template-columns: 1fr;
         </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/936bbddbd8e55b64e7279fc633197fdd/invoke.js"></script>
     </div>
-    <div class="side-box" style="height:300px; overflow:hidden;"> <script type="text/javascript">
+    <div class="side-box" style="height:300px; overflow:hidden;">
+        <script type="text/javascript">
             atOptions = { 'key' : '2b8951f952b33c3bf1695559e396d534', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
         </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/2b8951f952b33c3bf1695559e396d534/invoke.js"></script>
@@ -539,7 +536,7 @@ function startTimer(type) {
     btn.style.display = 'none';
     timerText.style.display = 'block';
     
-    let timeLeft = 30; // 30 segundos por botón activados
+    let timeLeft = 30;
     
     let countdown = setInterval(() => {
         timeLeft--;
