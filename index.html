@@ -93,7 +93,6 @@ border-left:4px solid #7d45ff;
 padding-left:12px;
 }
 
-/* CONTENEDORES DE ANUNCIOS DE ADORNO EXTERNOS (SÓLO IMPRESIONES) */
 .ad-decor{
 display:flex;
 justify-content:center;
@@ -105,7 +104,7 @@ border-radius:12px;
 border:1px solid #252525;
 min-height:60px;
 overflow:hidden;
-pointer-events: none; /* Bloquea clics falsos */
+pointer-events: none;
 }
 
 .videos-grid {
@@ -205,7 +204,6 @@ font-size:13px;
 line-height:1.5;
 }
 
-/* ÁREA DE DESCARGAS LIMPIA */
 .links-area {
 background:#111;
 padding:30px;
@@ -300,7 +298,17 @@ from { opacity: 0; transform: translateY(-5px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* BANNERS LATERALES FIJOS (SÓLO IMPRESIONES DE FONDO) */
+footer {
+text-align: center;
+padding: 20px;
+color: #666;
+font-size: 14px;
+margin-top: 20px;
+}
+
+/* ====================================================
+   SISTEMA DE BANNERS INTELIGENTES (PC Y CELULAR)
+====================================================== */
 .sidebar-decor-left {
 position: fixed;
 left: 10px;
@@ -335,9 +343,31 @@ border-radius: 8px;
 overflow: hidden;
 }
 
+/* NUEVA SECCIÓN MÓVIL: Se activa únicamente en pantallas chicas */
+.mobile-ads-container {
+display: none;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+margin: 25px auto;
+padding: 15px;
+background: #131313;
+border-radius: 16px;
+border: 1px solid #252525;
+max-width: 360px;
+pointer-events: none;
+}
+
+/* CAMBIO DE DISEÑO AUTOMÁTICO EN CELULARES */
 @media(max-width:1300px){
+/* Oculta los flotantes de los lados para que no estorben */
 .sidebar-decor-left, .sidebar-decor-right {
 display: none !important;
+}
+/* Activa los bloques de 160px abajo del contenedor principal */
+.mobile-ads-container {
+display: flex !important;
 }
 }
 
@@ -471,6 +501,21 @@ grid-template-columns: 1fr;
 
 </div>
 
+<div class="mobile-ads-container">
+    <p style="width:100%; text-align:center; font-size:12px; color:#555; margin-bottom:5px;">Anuncios Recomendados</p>
+    <div class="side-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '936bbddbd8e55b64e7279fc633197fdd', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/936bbddbd8e55b64e7279fc633197fdd/invoke.js"></script>
+    </div>
+    <div class="side-box" style="height:300px; overflow:hidden;"> <script type="text/javascript">
+            atOptions = { 'key' : '2b8951f952b33c3bf1695559e396d534', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/2b8951f952b33c3bf1695559e396d534/invoke.js"></script>
+    </div>
+</div>
+
 <div class="ad-decor">
     <script type="text/javascript">
         atOptions = { 'key' : 'f4e56db114511233b686986f8af2d716', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
@@ -486,7 +531,6 @@ grid-template-columns: 1fr;
 </footer>
 
 <script>
-// NUEVA LÓGICA: ACTUALIZADO A 30 SEGUNDOS POR ENLACE
 function startTimer(type) {
     let btn = document.getElementById('btn-' + type);
     let timerText = document.getElementById('timer-' + type);
@@ -495,7 +539,7 @@ function startTimer(type) {
     btn.style.display = 'none';
     timerText.style.display = 'block';
     
-    let timeLeft = 30; // Inicia la cuenta regresiva en 30 segundos
+    let timeLeft = 30; // 30 segundos por botón activados
     
     let countdown = setInterval(() => {
         timeLeft--;
@@ -504,7 +548,7 @@ function startTimer(type) {
         if (timeLeft <= 0) {
             clearInterval(countdown);
             timerText.style.display = 'none';
-            list.style.display = 'block'; // Muestra el link de Mediafire
+            list.style.display = 'block';
         }
     }, 1000);
 }
